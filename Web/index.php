@@ -47,7 +47,7 @@ $accounts = $accountService->GetAllAccounts();
                     </div>
                     <div class="card-body">
 
-                        <table class="table table-borderless table-hover">
+                        <table class="table table-borderless table-hover mb-0">
                             <thead class="">
                                 <tr>
                                     <th scope="col">Id</th>
