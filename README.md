@@ -13,6 +13,10 @@
   <a href="#">Maciej Chajda</a>
 </p>
 
+<p align="center">
+<img  src="Web/mockup2.png">
+</p>
+
 ## Kluczowa funkcjonalność
 
 ### STM
