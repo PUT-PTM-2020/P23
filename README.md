@@ -25,6 +25,8 @@
 * Przelew między kontami
   - Wprowadzamy kwotę do przelania między kontami, następnie przykładamy dwie karty, jedna po drugiej, a transakcja zostanie wykonana
   - (Opcjonalnie) wpisujemy numer Id konta na które chcemy przelać kwotę
+* Główna część logiczna
+  - bezpośrednia odpowiedzialność za zgodność i poprawność transakcji
   
 ### Cloud
 * Interfejs webowy
