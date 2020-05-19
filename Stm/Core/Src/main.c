@@ -57,9 +57,6 @@ static void MX_GPIO_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 int ifPin = 0, ifId = 1, ifOperacja = 0, ifKwota = 0;
-char pin[4];
-char kwota[4] = {'0', '0', '0', '0'};
-char operacja;
 
 char* klawiter(){
 	while(1){
@@ -205,6 +202,10 @@ void getKwota(char * kwota){
 }
 
 void getData(){
+	char pin[4];
+	char kwota[4] = {'0', '0', '0', '0'};
+	char operacja;
+
 	if(ifId == 1){
 		getPin(pin);
 	}
