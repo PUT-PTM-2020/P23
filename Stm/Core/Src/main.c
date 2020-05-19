@@ -57,7 +57,9 @@ static void MX_GPIO_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 int ifPin = 0, ifId = 1, ifOperacja = 0, ifKwota = 0;
-
+char pin[4];
+char kwota[4] = {'0', '0', '0', '0'};
+char operacja;
 
 char* klawiter(){
 	while(1){
@@ -247,9 +249,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  char pin[4];
-  char kwota[4] = {'0', '0', '0', '0'};
-  char operacja;
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
