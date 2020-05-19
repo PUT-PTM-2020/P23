@@ -20,7 +20,8 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
+#include <stdint.h>
+#include <string.h>
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -55,7 +56,10 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t klawiter(){
+int ifPin = 0, ifId = 1, ifOperacja = 0, ifKwota = 0;
+
+
+char* klawiter(){
 	while(1){
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_0, 0);
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_1, 1);
@@ -133,6 +137,85 @@ uint8_t klawiter(){
 	}
 
 }
+
+void getPin(char * pin){
+	char temp;
+
+	for(int i=0; i<4; i++){
+		temp = klawiter();
+		pin[i] = temp;
+	}
+
+	ifPin = 1;
+}
+
+char getOperacja(){
+	char op = klawiter();
+	ifOperacja = 1;
+
+	return op;
+}
+
+void getKwota(char * kwota){
+	char ilosc = klawiter();
+
+	switch(ilosc){
+		case '1':{
+			kwota[2] = '2';
+			ifKwota = 1;
+			break;
+		}
+		case '2':{
+			kwota[2] = '5';
+			ifKwota = 1;
+			break;
+		}
+		case '3':{
+			kwota[1] = '1';
+			ifKwota = 1;
+			break;
+		}
+		case '4':{
+			kwota[1] = '2';
+			ifKwota = 1;
+			break;
+		}
+		case '5':{
+			char temp;
+			int licznik = 0;
+			int liczba = 0;
+
+			while(temp != '#' && licznik < 4){
+				temp = klawiter();
+				kwota[licznik] = temp;
+				licznik++;
+			}
+
+			ifKwota = 1;
+
+			if(kwota[licznik-2] != 0){
+				ifKwota = 0;
+			}
+
+			break;
+		}
+	}
+}
+
+void getData(){
+	if(ifId == 1){
+		getPin(pin);
+	}
+
+	if(ifPin == 1 && ifId == 1){
+		operacja = getOperacja();
+	}
+
+	if(ifPin == 1 && ifId == 1 && ifOperacja == 1){
+		getKwota(kwota);
+	}
+	//zerowanie flag
+}
 /* USER CODE END 0 */
 
 /**
@@ -164,14 +247,18 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  uint8_t zwrot;
+  char pin[4];
+  char kwota[4] = {'0', '0', '0', '0'};
+  char operacja;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  zwrot = klawiter();
+
+
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
