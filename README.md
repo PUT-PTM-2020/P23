@@ -33,3 +33,14 @@
   - Podgląd kont oraz ich salda
 * Storage
   - Przechowuje wszystkie dane związane z kontami
+
+## Komunikaty
+* *UserId* - zmienna identyfikująca użytkownika
+* *Balance* - saldo użytkownika
+
+| STM <> WiFi                   | Funkcja                                | Zwraca                         | WiFi <> Chmura                           |
+|-------------------------------|----------------------------------------|--------------------------------|------------------------------------------|
+| getBalance:*UserId*           | Pobiera saldo użytkownika              | **float** reprezentujący saldo | https://____/api/getSaldo/UserId         |
+| setBalance:*UserId*:*Balance* | Zapisuje saldo użytkownika na serwerze | **void**                       | https://____/api/setSaldo/UserId/Balance |
+|                               |                                        |                                |                                          |
+|                               |                                        |                                |                                          |
