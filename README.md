@@ -38,9 +38,9 @@
 * *UserId* - zmienna identyfikująca użytkownika
 * *Balance* - saldo użytkownika
 
-| STM <> WiFi                   | Funkcja                                | Zwraca                         | WiFi <> Chmura                           |
-|-------------------------------|----------------------------------------|--------------------------------|------------------------------------------|
-| getBalance:*UserId*           | Pobiera saldo użytkownika              | **float** reprezentujący saldo | https://____/api/getSaldo/UserId         |
-| setBalance:*UserId*:*Balance* | Zapisuje saldo użytkownika na serwerze | **void**                       | https://____/api/setSaldo/UserId/Balance |
-|                               |                                        |                                |                                          |
-|                               |                                        |                                |                                          |
+| STM <> WiFi | Funkcja | Zwraca | WiFi <> Chmura |
+|-------------------------------|-----------------------------------------|--------------------------------|------------------------------------------|
+| getBalance:*UserId* | Pobiera saldo użytkownika | **float** reprezentujący saldo | https://____/api/getSaldo/UserId |
+| setBalance:*UserId*:*Balance* | Zapisuje saldo użytkownika na serwerze | **void** | https://____/api/setSaldo/UserId/Balance |
+| input:*char* | Wysyła informację o wciśniętym klawiszu | **void** |  |
+| showMessage:*text* | Wysyła komunikat do użytkownika | **void** |  |
