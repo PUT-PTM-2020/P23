@@ -37,6 +37,8 @@
 ## Komunikaty
 * *UserId* - zmienna identyfikująca użytkownika
 * *Balance* - saldo użytkownika
+* *char* - pojedynczy znak wysłany z klawiatury numerycznej
+* *text* - komunikat wysłany z STM do użytkownika 
 
 | STM <> WiFi | Funkcja | Zwraca | WiFi <> Chmura |
 |-------------------------------|-----------------------------------------|--------------------------------|------------------------------------------|
