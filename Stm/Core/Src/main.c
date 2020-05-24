@@ -145,7 +145,7 @@ void getuid(char * uid){
 		}
 }
 
-void pin(char * pin){
+void getpin(char * pin){
 	char temp;
 
 	for(int i=0; i<4; i++){
@@ -158,8 +158,8 @@ void pin(char * pin){
 void getPin(char * pin){
 	char temp[4];
 	//tutaj musi byc pobranie poprawnego pinu od wifi i zapisanie do temp
-	while(IfPin != 1){
-	pin(pin); //wczytanie pinu od użytkownika
+	while(ifPin != 1){
+	getpin(pin); //wczytanie pinu od użytkownika
 	if(pin == temp) ifPin = 1; //jak jest dobry to super pętla się kończy, tylko nwm czy iteracyjnie nie bedzie trzeba porównać
 	else {
 		//i tu wyslanie informacji o błędzie na serwer żeby wyświetliło się użytkownikowi, że musi jeszcze raz wpisać go
@@ -181,8 +181,9 @@ char getOperacja(){
 
 void getKwota(char * kwota){
 int pom = 0;
+char ilosc;
 while(pom != 1){
-	char ilosc = klawiter();
+	ilosc = klawiter();
 if(ilosc > 48 && ilosc < 54) //sprawdzenie czy miesci sie miedzy 1 a 5
 pom = 1;
 else {
