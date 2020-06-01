@@ -1,0 +1,126 @@
+﻿@page "/"
+@page "/device/{DeviceId}"
+@using PTM.Services
+@using PTM.Pages.Components
+@inject AppStateService _appStateService
+@inject IJSRuntime _JSRuntime
+
+@if (CurrentDisplay == "cardread")
+{
+    <CardRead></CardRead>
+}
+else if (CurrentDisplay == "balance")
+{
+    <Balance CardId="@CardId"></Balance>
+}
+else if (CurrentDisplay == "deposit")
+{
+    <Deposit Input="@Input"></Deposit>
+}
+else if (CurrentDisplay == "menu")
+{
+    <Menu></Menu>
+}
+else if (CurrentDisplay == "pin")
+{
+    <Pin></Pin>
+}
+else if (CurrentDisplay == "menu")
+{
+    <Menu></Menu>
+}
+else if (CurrentDisplay == "transfer")
+{
+    <Transfer Input="@Input"></Transfer>
+}
+else if (CurrentDisplay == "withdrawal")
+{
+    <Withdrawal Input="@Input"></Withdrawal>
+}
+else
+{
+    <h1>Hello, world!</h1>
+    
+    <p>Current device: @DeviceId</p>
+}
+
+@code
+    {
+    [Parameter]
+    public string DeviceId { get; set; }
+
+    string Input = "";
+    string CurrentDisplay = "";
+    string CardId = "";
+
+
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        _appStateService.OnDisplayChange += HandleDisplayChange;
+        _appStateService.OnKeyPress += HandleKeyPress;
+        _appStateService.OnToastAction += HandleToast;
+
+    }
+
+
+    async void HandleDisplayChange(string deviceId, string screen, string cardId)
+    {
+        if (deviceId != DeviceId) return;
+        Input = "";
+        CardId = cardId;
+        CurrentDisplay = screen.ToLower();
+        await InvokeAsync(() => StateHasChanged());
+    }
+
+    async void HandleKeyPress(string deviceId, string keyPressed)
+    {
+        if (deviceId != DeviceId) return;
+        if (keyPressed.ToLower() == "removelast" && Input.Length > 0)
+        {
+            Input = Input.Substring(0, Input.Length - 1);
+        }
+        if (keyPressed.ToLower() == "remove" || keyPressed.ToLower() == "clear")
+        {
+            Input = "";
+        }
+        else
+        {
+            Input += keyPressed;
+        }
+        await InvokeAsync(() => StateHasChanged());
+    }
+
+    async void HandleToast(string deviceId, string toastType, string message)
+    {
+        if (deviceId != DeviceId) return;
+        if (toastType.Equals("warning",StringComparison.CurrentCultureIgnoreCase))
+        {
+            _JSRuntime.InvokeVoidAsync("toastr.warning", message);
+        }
+        else if(toastType.Equals("success", StringComparison.CurrentCultureIgnoreCase))
+        {
+            _JSRuntime.InvokeVoidAsync("toastr.success", message);
+        }
+        else if (toastType.Equals("error", StringComparison.CurrentCultureIgnoreCase))
+        {
+            _JSRuntime.InvokeVoidAsync("toastr.error", message);
+
+        }
+        else
+        {
+            _JSRuntime.InvokeVoidAsync("toastr.info", message);
+        }
+    }
+
+
+    public void Dispose()
+    {
+        _appStateService.OnKeyPress -= HandleKeyPress;
+        _appStateService.OnToastAction -= HandleToast;
+        _appStateService.OnDisplayChange -= HandleDisplayChange;
+    }
+
+
+}

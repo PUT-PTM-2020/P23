@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PTM</name>
+    </assembly>
+    <members>
+        <member name="M:PTM.Controllers.AccountsController.Get">
+            <summary>
+            Tylko do testowania, wszystkie konta
+            </summary>
+        </member>
+        <member name="M:PTM.Controllers.AccountsController.Get(System.String)">
+            <summary>
+            Tylko do testowania
+            </summary>
+        </member>
+        <member name="M:PTM.Controllers.AccountsController.Put(System.String,System.Double)">
+            <summary>
+            Ustawianie salda
+            </summary>
+        </member>
+        <member name="M:PTM.Controllers.AccountsController.Post(PTM.Models.AccountModel)">
+            <summary>
+            Tylko do testowania, dodawanie nowego konta
+            </summary>
+        </member>
+        <member name="M:PTM.Controllers.DeviceController.ShowToast(System.String,System.String,System.String)">
+            <summary>
+            Dozwolone możliwości dla Type: "info", "success", "error", "warning"
+            </summary>
+        </member>
+        <member name="F:PTM.Services.AppStateService.OnDisplayChange">
+            <summary>
+            First string: DeviceId,
+            Second string: Screen string
+            Third string: Card Id
+            </summary>
+        </member>
+        <member name="F:PTM.Services.AppStateService.OnKeyPress">
+            <summary>
+            First string: DeviceId,
+            Second string: Key pressed
+            </summary>
+        </member>
+        <member name="F:PTM.Services.AppStateService.OnToastAction">
+            <summary>
+            First string: DeviceId,
+            Second string: Toast Type
+            Third string: Message to show
+            </summary>
+        </member>
+    </members>
+</doc>

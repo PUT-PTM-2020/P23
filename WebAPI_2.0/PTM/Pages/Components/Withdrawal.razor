@@ -1,0 +1,110 @@
+﻿<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="container">
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <h3 class="modal-title" id="exampleModalLabel">Wypłać pieniądze</h3>
+
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" @bind="option1" type="checkbox" name="inlineRadioOptions" id="opcja1">
+                                <label class="form-check-label" for="opcja1">20</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check form-check-inline float-right">
+                                <label class="form-check-label" for="opcja2" style="padding-right: 6px;">50</label>
+                                <input class="form-check-input" @bind="option2" type="checkbox" name="inlineRadioOptions" id="opcja2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" @bind="option3"  type="checkbox" name="inlineRadioOptions" id="opcja3" >
+                                <label class="form-check-label" for="opcja3">100</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check form-check-inline float-right">
+                                <label class="form-check-label" for="opcja4" style="padding-right: 6px;">200</label>
+                                <input class="form-check-input"  @bind="option4"  type="checkbox" name="inlineRadioOptions" id="opcja4">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mb-3">
+                        <div class="col">
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label mr-3" for="opcja5">Niestandardowe: </label>
+                                <input class="form-control @activeFormClass" value="@option5Input" type="text" name="inlineRadioOptions" id="opcja5">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group float-right">
+                        <a class="btn btn-warning" href="menu.html">Wroć</a>
+                        <a class="btn btn-primary" href="menu.html">Zatwierdź</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public string Input { get; set; } = "";
+
+    bool option1, option2, option3, option4;
+    string activeFormClass = "";
+    string option5Input = "";
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        option1 = option2 = option3 = option4 = false;
+        activeFormClass = "";
+        option5Input = "";
+
+        if (Input.Length > 0)
+        {
+            int inputFirstNumber = Int32.Parse((Input.Substring(0, 1)));
+            if (inputFirstNumber == 1)
+            {
+                option1 = true;
+            }
+            else if(inputFirstNumber == 2)
+            {
+                option2 = true;
+            }
+            else if(inputFirstNumber == 3)
+            {
+                option3 = true;
+            }
+            else if(inputFirstNumber == 4)
+            {
+                option4 = true;
+            }
+            else if (inputFirstNumber == 5)
+            {
+                activeFormClass = "form-control-focus";
+                option5Input = Input.Substring(1);
+            }
+        }
+
+    }
+
+
+    string getReceiverId()
+    {
+        if (Input.Contains("#"))
+        {
+            return Input.Split("#")[0];
+        }
+        return Input;
+    }
+
+}

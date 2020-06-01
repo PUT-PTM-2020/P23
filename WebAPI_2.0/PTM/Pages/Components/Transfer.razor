@@ -1,0 +1,67 @@
+﻿<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="container" style="width:500px">
+        <h3 class="modal-title" id="exampleModalLabel">Wykonaj przelew</h3>
+
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">ID Odbiorcy</label>
+                <input type="text" value="@getReceiverId()" class="form-control @getFocusClass(0)">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Kwota</label>
+                <input type="text" value="@getAmount()" class="form-control @getFocusClass(1)">
+            </div>
+            <!--<div class="form-group">
+        <label for="exampleInputPassword1">Zatwierdź kodem Pin</label>
+        <input type="password" class="form-control">
+    </div>-->
+
+
+            <div class="form-group float-right">
+                <a class="btn btn-warning" href="menu.html">Wróć</a>
+                <a class="btn btn-primary" href="menu.html">Zatwierdź</a>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Input { get; set; } = "";
+
+
+    string getReceiverId()
+    {
+        if (Input.Contains("#"))
+        {
+            return Input.Split("#")[0];
+        }
+        return Input;
+    }
+
+    string getAmount()
+    {
+        if (Input.Contains("#"))
+        {
+            return Input.Split("#")[1];
+        }
+        return "";
+    }
+
+    string getFocusClass(int elementIndex)
+    {
+        if (!Input.Contains("#"))
+        {
+            if (elementIndex == 0)
+                return "form-control-focus";
+        }
+        else
+        {
+            if (elementIndex == 1)
+                return "form-control-focus";
+        }
+        return "";
+    }
+
+}
