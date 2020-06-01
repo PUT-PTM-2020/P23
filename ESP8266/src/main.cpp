@@ -6,7 +6,6 @@
 #include <HttpRequester.cpp>
 #include <StringMoje.cpp>
 #include <Logger.cpp>
-#include <TimeMoje.cpp>
 #include <string> 
 #include <Config.cpp> 
 using namespace std;
