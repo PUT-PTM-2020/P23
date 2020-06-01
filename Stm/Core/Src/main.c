@@ -137,7 +137,15 @@ char* klawiter(){
 
 }
 
-void getPin(char * pin){
+void getuid(char * uid){
+	char temp;
+	for(int i=0; i<8; i++){ //zakladajac ze uid ma 8 znakow, znowu nie pamietam ile mialo
+			temp = klawiter();
+			uid[i] = temp;
+		}
+}
+
+void getpin(char * pin){
 	char temp;
 
 	for(int i=0; i<4; i++){
@@ -145,44 +153,67 @@ void getPin(char * pin){
 		pin[i] = temp;
 	}
 
-	ifPin = 1;
+}
+
+void getPin(char * pin){
+	char temp[4];
+	//tutaj musi byc pobranie poprawnego pinu od wifi i zapisanie do temp
+	while(ifPin != 1){
+	getpin(pin); //wczytanie pinu od użytkownika
+	if(pin == temp) ifPin = 1; //jak jest dobry to super pętla się kończy, tylko nwm czy iteracyjnie nie bedzie trzeba porównać
+	else {
+		//i tu wyslanie informacji o błędzie na serwer żeby wyświetliło się użytkownikowi, że musi jeszcze raz wpisać go
+	}}
+
 }
 
 char getOperacja(){
 	char op = klawiter();
+	while(ifOperacja != 1){
+	if(op == '1' || op == '2' || op == '3')
 	ifOperacja = 1;
+	else {
+		//wyslanie informacji na serwer, poproszenie uzytkownika o wpisanie numeru operacji jeszcze raz
+	}}
 
 	return op;
 }
 
 void getKwota(char * kwota){
-	char ilosc = klawiter();
-
+int pom = 0;
+char ilosc;
+while(pom != 1){
+	ilosc = klawiter();
+if(ilosc > 48 && ilosc < 54) //sprawdzenie czy miesci sie miedzy 1 a 5
+pom = 1;
+else {
+	//na serwer - blad, nie ma takiej opcji, wpisz jeszcze raz
+}}
 	switch(ilosc){
 		case '1':{
-			kwota[2] = '2';
+			kwota[2] = '2'; //20
 			ifKwota = 1;
 			break;
 		}
 		case '2':{
-			kwota[2] = '5';
+			kwota[2] = '5'; //50
 			ifKwota = 1;
 			break;
 		}
 		case '3':{
-			kwota[1] = '1';
+			kwota[1] = '1'; //100
 			ifKwota = 1;
 			break;
 		}
 		case '4':{
-			kwota[1] = '2';
+			kwota[1] = '2'; //200
 			ifKwota = 1;
 			break;
 		}
-		case '5':{
+		case '5':{ //kwota niestandardowa
 			char temp;
 			int licznik = 0;
-			int liczba = 0;
+			//int liczba = 0;
 
 			while(temp != '#' && licznik < 4){
 				temp = klawiter();
@@ -203,6 +234,7 @@ void getKwota(char * kwota){
 
 void getData(){
 	char pin[4];
+	char uid[8];
 	char kwota[4] = {'0', '0', '0', '0'};
 	char operacja;
 
@@ -210,12 +242,22 @@ void getData(){
 		getPin(pin);
 	}
 
+
 	if(ifPin == 1 && ifId == 1){
 		operacja = getOperacja();
+		//wyslanie informacji o wybranej operacji na serwer
+	}
+	if(ifPin == 1 && ifId == 1 && ifOperacja == 1 && operacja == '3'){ //zakladajac ze przelew jest jako operacja 3
+		getuid(uid);
+		//wyslanie uid na serwer
+		// odebranie informacji czy istnieje taki użytkownik, jak nie to powtorzyc getuid() potem jakas tu petle wstawic
+		getKwota(kwota);
+		//wyslanie info na serwer
 	}
 
-	if(ifPin == 1 && ifId == 1 && ifOperacja == 1){
+	else if(ifPin == 1 && ifId == 1 && ifOperacja == 1){ //tu pojdzie reszta operacji
 		getKwota(kwota);
+		//wyslanie kwoty na serwer
 	}
 	//zerowanie flag
 }
