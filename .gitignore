@@ -261,3 +261,5 @@ __pycache__/
 
 # Ignore Migrations
 WebAPI_2.0/PTM/DatabaseAccounts.txt
+ESP/.vscode/settings.json
+ESP8266/.vscode/settings.json
