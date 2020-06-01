@@ -92,7 +92,7 @@ void loop() {
 
     while(Serial.available() > 0)
     {
-          String s1 = Serial.readString();
+          String s1 = Serial.readStringUntil('\n');
           HandleCommand(s1);
     }
 
