@@ -35,14 +35,10 @@
   - Przechowuje wszystkie dane związane z kontami
 
 # Dokumentacja techniczna
-* *UserId* - zmienna identyfikująca użytkownika
-* *Balance* - saldo użytkownika
-* *char* - pojedynczy znak wysłany z klawiatury numerycznej
-* *text* - komunikat wysłany z STM do użytkownika 
+## Komunikaty wymieniane między STM, a modułem WiFi
 
-| STM <> WiFi | Funkcja | Zwraca | WiFi <> Chmura |
-|-------------------------------|-----------------------------------------|--------------------------------|------------------------------------------|
-| getBalance:*UserId* | Pobiera saldo użytkownika | **float** reprezentujący saldo | https://____/api/getSaldo/UserId |
-| setBalance:*UserId*:*Balance* | Zapisuje saldo użytkownika na serwerze | **void** | https://____/api/setSaldo/UserId/Balance |
-| input:*char* | Wysyła informację o wciśniętym klawiszu | **void** |  |
-| showMessage:*text* | Wysyła komunikat do użytkownika | **void** |  |
+| STM <> ESP | Opis |
+|-|-|
+| GetLastId | Zwraca ostatnio odczytane Id |
+| ClearLastId | Czyści bufor skanera Id |
+| GetHttpRequest:*URL* | Pobiera zawartość podanego URL |
