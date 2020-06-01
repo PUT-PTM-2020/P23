@@ -51,7 +51,6 @@ String readCard()
 void SendResponse(String response)
 {
   Serial.println(response);
-  Logger::logInfo(response.c_str());
 }
 
 void HandleCommand(String Command)
