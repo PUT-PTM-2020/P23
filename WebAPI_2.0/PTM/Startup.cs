@@ -68,7 +68,7 @@ namespace PTM
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "PTM");
             });
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
