@@ -34,7 +34,7 @@
 * Storage
   - Przechowuje wszystkie dane związane z kontami
 
-## Komunikaty
+# Dokumentacja techniczna
 * *UserId* - zmienna identyfikująca użytkownika
 * *Balance* - saldo użytkownika
 * *char* - pojedynczy znak wysłany z klawiatury numerycznej
