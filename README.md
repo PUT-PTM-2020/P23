@@ -39,6 +39,6 @@
 
 | STM <> ESP | Opis |
 |-|-|
-| GetLastId | Zwraca ostatnio odczytane Id |
+| GetLastId | Zwraca ostatnio odczytane Id, "null" jeśli pusty |
 | ClearLastId | Czyści bufor skanera Id |
 | GetHttpRequest:*URL* | Pobiera zawartość podanego URL |
