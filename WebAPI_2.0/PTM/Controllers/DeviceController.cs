@@ -27,6 +27,10 @@ namespace PTM.Controllers
             return;
         }
 
+        /// <summary>
+        /// Zamiast hasztagu w BEZPOŚREDNIO W ADRESIE URL, nie w swaggerze podstawić "%23"
+        /// Tak końcówka url powinien wyglądać: "api/Device/sendKey/test/%23"
+        /// </summary>
         [HttpGet("sendKey/{deviceId}/{key}")]
         public void SendKey(string deviceId, string key)
         {
