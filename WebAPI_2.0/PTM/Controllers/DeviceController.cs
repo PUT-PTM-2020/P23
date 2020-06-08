@@ -17,6 +17,9 @@ namespace PTM.Controllers
             _appStateService = appStateService;
         }
 
+        /// <summary>
+        /// Dostępne wyświetlacze: "balance", "cardread", "deposit", "menu", "pin", "transfer", "withdrawal"
+        /// </summary>
         [HttpGet("setDisplay/{deviceId}/{display}/{cardId}")]
         public void SetDisplay(string deviceId, string display, string cardId)
         {
