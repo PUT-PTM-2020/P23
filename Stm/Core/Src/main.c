@@ -59,6 +59,7 @@ static void MX_GPIO_Init(void);
 int ifPin = 0, ifId = 1, ifOperacja = 0, ifKwota = 0;
 
 char* klawiter(){
+	char komunikat[71] = "GetHttpRequest:http://ptm23.azurewebsites.net/api/Device/sendKey/test/0";
 	while(1){
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_0, 0);
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_1, 1);
@@ -67,16 +68,22 @@ char* klawiter(){
 		//1
 		if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6)==0){
 			while(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6)==0){}
+			kominukat[70] = "1";
+			//tutaj wyslanie komunikatu do wifi
 			return '1';
 		}
 
 		if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)==0){
 			while(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)==0){}
+			kominukat[70] = "2";
+			//tutaj wyslanie komunikatu do wifi
 			return '2';
 		}
 
 		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10)==0){
 			while(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10)==0){}
+			kominukat[70] = "3";
+			//tutaj wyslanie komunikatu do wifi
 			return '3';
 		}
 
@@ -85,16 +92,22 @@ char* klawiter(){
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_1, 0);
 		if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6)==0){
 			while(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6)==0){}
+			kominukat[70] = "4";
+						//tutaj wyslanie komunikatu do wifi
 			return '4';
 		}
 
 		if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)==0){
 			while(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)==0){}
+			kominukat[70] = "5";
+						//tutaj wyslanie komunikatu do wifi
 			return '5';
 		}
 
 		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10)==0){
 			while(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10)==0){}
+			kominukat[70] = "6";
+						//tutaj wyslanie komunikatu do wifi
 			return '6';
 		}
 
@@ -103,16 +116,22 @@ char* klawiter(){
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, 0);
 		if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6)==0){
 			while(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6)==0){}
+			kominukat[70] = "7";
+						//tutaj wyslanie komunikatu do wifi
 			return '7';
 		}
 
 		if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)==0){
 			while(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)==0){}
+			kominukat[70] = "8";
+						//tutaj wyslanie komunikatu do wifi
 			return '8';
 		}
 
 		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10)==0){
 			while(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10)==0){}
+			kominukat[70] = "9";
+						//tutaj wyslanie komunikatu do wifi
 			return '9';
 		}
 
@@ -121,16 +140,22 @@ char* klawiter(){
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_3, 0);
 		if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6)==0){
 			while(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6)==0){}
+			kominukat[70] = "*";
+			//tutaj wyslanie komunikatu do wifi
 			return '*';
 		}
 
 		if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)==0){
 			while(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)==0){}
+			kominukat[70] = "0";
+			//tutaj wyslanie komunikatu do wifi
 			return '0';
 		}
 
 		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10)==0){
 			while(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10)==0){}
+			kominukat[70] = "#";
+			//tutaj wyslanie komunikatu do wifi
 			return '#';
 		}
 	}
@@ -232,14 +257,19 @@ else {
 	}
 }
 
+char readId[83] = "GetHttpRequest:http://ptm23.azurewebsites.net/api/Device/setDisplay/test/cardread/0";
+
 void getData(){
 	char pin[4];
 	char uid[8];
 	char kwota[4] = {'0', '0', '0', '0'};
 	char operacja;
 
+	//wyslac readId
+
 	if(ifId == 1){
 		getPin(pin);
+		//odebrac pin od serwera poprawny i jak pasuje do naszego to setdisplay na operacje a jak nie to error albo reset do display pinu
 	}
 
 
