@@ -18,7 +18,7 @@ public:
             string dataUrlEncoded = StringMoje::urlEncode(data);
             //Serial.print("data: ");
             //Serial.println(dataUrlEncoded.c_str());
-            //HttpRequester::Get("" + dataUrlEncoded);
+            HttpRequester::Get("http://dominik716.ct8.pl/arduino/Logger/set.php?data=" + dataUrlEncoded);
         }
         else
         {
