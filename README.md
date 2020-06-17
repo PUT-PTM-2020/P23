@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-<img  src="Web/mockup2.png">
+<img  src="mockup2.png">
 </p>
 
 ## Kluczowa funkcjonalność
