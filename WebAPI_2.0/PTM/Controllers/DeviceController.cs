@@ -21,10 +21,10 @@ namespace PTM.Controllers
         /// Dostępne wyświetlacze: "balance", "cardread", "deposit", "menu", "pin", "transfer", "withdrawal"
         /// </summary>
         [HttpGet("setDisplay/{deviceId}/{display}/{cardId}")]
-        public void SetDisplay(string deviceId, string display, string cardId)
+        public ActionResult SetDisplay(string deviceId, string display, string cardId)
         {
             _appStateService.OnDisplayChange(deviceId, display, cardId);
-            return;
+            return Ok("Ok");
         }
 
         /// <summary>
@@ -32,10 +32,10 @@ namespace PTM.Controllers
         /// Tak końcówka url powinien wyglądać: "api/Device/sendKey/test/%23"
         /// </summary>
         [HttpGet("sendKey/{deviceId}/{key}")]
-        public void SendKey(string deviceId, string key)
+        public ActionResult SendKey(string deviceId, string key)
         {
             _appStateService.OnKeyPress(deviceId, key);
-            return;
+            return Ok("Ok");
         }
 
         /// <summary>
