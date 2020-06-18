@@ -211,13 +211,12 @@ void getpin(char * pin){
 
 void getPin(char * pin){
 	char temp[4];
-	//tutaj musi byc pobranie poprawnego pinu od wifi i zapisanie do temp
 	while(ifPin != 1){
 	getpin(pin);
-	HAL_Delay(50);//wczytanie pinu od użytkownika
-	if(strcmp(pin,temp)) ifPin = 1; //jak jest dobry to super pętla się kończy, tylko nwm czy iteracyjnie nie bedzie trzeba porównać
+	HAL_Delay(50);
+	if(strcmp(pin,temp)) ifPin = 1; 
 	else {
-		//i tu wyslanie informacji o błędzie na serwer żeby wyświetliło się użytkownikowi, że musi jeszcze raz wpisać go
+		
 	}}
 
 }
@@ -229,7 +228,7 @@ char getOperacja(){
 	ifOperacja = 1;
 
 	else {
-		//wyslanie informacji na serwer, poproszenie uzytkownika o wpisanie numeru operacji jeszcze raz
+		
 	}}
 
 	return op;
@@ -243,7 +242,7 @@ while(pom != 1){
 if(ilosc > 48 && ilosc < 54) //sprawdzenie czy miesci sie miedzy 1 a 5
 pom = 1;
 else {
-	//na serwer - blad, nie ma takiej opcji, wpisz jeszcze raz
+	
 }}
 	switch(ilosc){
 		case '1':{
@@ -296,7 +295,7 @@ int pom = 0;
 		//kwota niestandardowa
 			char temp;
 			int licznik = 0;
-			//int liczba = 0;
+			
 
 			while(temp != '#' && licznik < 4){
 				temp = klawiter();
@@ -458,13 +457,13 @@ do{
 	}
 
 
-	if(ifPin == 1 && ifId == 1 && ifOperacja == 1 && operacja == '1'){ //tu pojdzie reszta operacji
+	if(ifPin == 1 && ifId == 1 && ifOperacja == 1 && operacja == '1'){ 
 			saldo(id);
 			klawiter();
 			widok(1);
 			//wyslanie kwoty na serwer
 		}
-	else if(ifPin == 1 && ifId == 1 && ifOperacja == 1 && operacja == '3'){ //tu pojdzie reszta operacji
+	else if(ifPin == 1 && ifId == 1 && ifOperacja == 1 && operacja == '3'){ 
 		widok(3);
 		getKwota2(kwota);
 		HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Accounts/",60, 5000);
@@ -484,7 +483,7 @@ do{
 
 			stan = (stan+wplata);
 			itoa(stan, stankonta, 10);
-			//stankonta = inttouint8(stan);
+			
 
 			//GetHttpRequest:http://ptmp23.azurewebsites.net/api/Accounts/0/balance/{NowaKwota}
 
@@ -510,7 +509,7 @@ do{
 		//wyslanie kwoty na serwer
 	}
 
-	else if(ifPin == 1 && ifId == 1 && ifOperacja == 1 && operacja == '4'){ //tu pojdzie reszta operacji
+	else if(ifPin == 1 && ifId == 1 && ifOperacja == 1 && operacja == '4'){ 
 			widok(6);
 			getKwota(kwota);
 			HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Accounts/",60, 5000);
@@ -562,7 +561,7 @@ do{
 			HAL_Delay(100);
 		}
 
-			//wyslanie kwoty na serwer
+			
 		}
 
 
