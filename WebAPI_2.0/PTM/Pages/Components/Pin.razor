@@ -1,23 +1,26 @@
 ﻿<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
-    
+
     <form>
         <h3>Podaj kod pin</h3>
         <div class="form-group d-flex justify-content-center">
-            <input type="password" name="pin" style="width: 6rem; font-size: 32px; text-align: center;" />
+            <input type="password" value="@Input" name="pin" style="width: 6rem; font-size: 32px; text-align: center;" />
         </div>
-    
+
         <div class="form-row">
             <div class="col">
-                <a class="btn btn-warning" href="index.html" >Wróć</a>
+                <a class="btn btn-warning" href="index.html">Wróć</a>
             </div>
             <div class="col">
                 <a class="btn btn-primary" href="menu.html">Dalej</a>
             </div>
         </div>
-    </form>   
-    
+    </form>
+
 </div>
 
 @code {
+
+    [Parameter]
+    public string Input { get; set; } = "";
 
 }
