@@ -40,17 +40,17 @@ namespace PTM.Controllers
 
         // GET: api/Accounts/5
         [HttpGet("{id}/balance")]
-        public ActionResult<double> GetBalance(string id)
+        public ActionResult<string> GetBalance(string id)
         {
             AccountModel account = Database.Accounts.FirstOrDefault(x => x.Id == id);
             if (account == null)
             {
                 Database.Accounts.Add(new AccountModel(){Id = id});
                 Database.SaveChanges();
-                return Database.Accounts.FirstOrDefault(x => x.Id == id).Balance;
+                return Database.Accounts.FirstOrDefault(x => x.Id == id).Balance.ToString().PadLeft(4, '0');
             }
 
-            return account.Balance;
+            return account.Balance.ToString().PadLeft(4, '0');
         }
 
         /// <summary>
