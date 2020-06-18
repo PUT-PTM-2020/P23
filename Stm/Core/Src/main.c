@@ -60,7 +60,10 @@ static void MX_USART3_UART_Init(void);
 int ifPin = 0, ifId = 1, ifOperacja = 0, ifKwota = 0;
 
 char* klawiter(){
-	char komunikat[71] = "GetHttpRequest:http://ptm23.azurewebsites.net/api/Device/sendKey/test/0";
+
+	uint8_t newline[1] = {10};
+	uint16_t size = 1;
+	uint8_t pom[1];
 
 	while(1){
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_0, 0);
@@ -70,23 +73,28 @@ char* klawiter(){
 		//1
 		if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6)==0){
 			while(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6)==0){}
-			komunikat[70] = '1';
 			HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Device/sendKey/test/1",72 ,100);
-
+			HAL_UART_Transmit(&huart3, newline, size, 50);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
 			return '1';
 		}
 
 		if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)==0){
 			while(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)==0){}
-			komunikat[70] = '2';
 			HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Device/sendKey/test/2",72 ,100);
+			HAL_UART_Transmit(&huart3, newline, size, 50);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
 			return '2';
 		}
 
 		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10)==0){
 			while(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10)==0){}
-			komunikat[70] = '3';
 			HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Device/sendKey/test/3",72 ,100);
+			HAL_UART_Transmit(&huart3, newline, size, 50);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
 			return '3';
 		}
 
@@ -95,22 +103,28 @@ char* klawiter(){
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_1, 0);
 		if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6)==0){
 			while(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6)==0){}
-			komunikat[70] = '4';
 			HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Device/sendKey/test/4",72 ,100);
+			HAL_UART_Transmit(&huart3, newline, size, 50);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
 			return '4';
 		}
 
 		if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)==0){
 			while(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)==0){}
-			komunikat[70] = '5';
 			HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Device/sendKey/test/5",72 ,100);
+			HAL_UART_Transmit(&huart3, newline, size, 50);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
 			return '5';
 		}
 
 		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10)==0){
 			while(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10)==0){}
-			komunikat[70] = '6';
 			HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Device/sendKey/test/6",72 ,100);
+			HAL_UART_Transmit(&huart3, newline, size, 50);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
 			return '6';
 		}
 
@@ -119,22 +133,28 @@ char* klawiter(){
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, 0);
 		if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6)==0){
 			while(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6)==0){}
-			komunikat[70] = '7';
 			HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Device/sendKey/test/7",72 ,100);
+			HAL_UART_Transmit(&huart3, newline, size, 50);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
 			return '7';
 		}
 
 		if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)==0){
 			while(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)==0){}
-			komunikat[70] = '8';
 			HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Device/sendKey/test/8",72 ,100);
+			HAL_UART_Transmit(&huart3, newline, size, 50);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
 			return '8';
 		}
 
 		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10)==0){
 			while(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10)==0){}
-			komunikat[70] = '9';
 			HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Device/sendKey/test/9",72 ,100);
+			HAL_UART_Transmit(&huart3, newline, size, 50);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
 			return '9';
 		}
 
@@ -143,22 +163,28 @@ char* klawiter(){
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_3, 0);
 		if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6)==0){
 			while(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6)==0){}
-			komunikat[70] = '*';
 			HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Device/sendKey/test/*",72 ,100);
+			HAL_UART_Transmit(&huart3, newline, size, 50);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
 			return '*';
 		}
 
 		if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)==0){
 			while(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)==0){}
-			komunikat[70] = '0';
 			HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Device/sendKey/test/0",72 ,100);
+			HAL_UART_Transmit(&huart3, newline, size, 50);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
 			return '0';
 		}
 
 		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10)==0){
 			while(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10)==0){}
-			komunikat[70] = '#';
 			HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Device/sendKey/test/#",72 ,100);
+			HAL_UART_Transmit(&huart3, newline, size, 50);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
+			HAL_UART_Receive(&huart3, pom, 1, 500);
 			return '#';
 		}
 	}
@@ -167,7 +193,7 @@ char* klawiter(){
 
 void getuid(char * uid){
 	char temp;
-	for(int i=0; i<8; i++){ //zakladajac ze uid ma 8 znakow, znowu nie pamietam ile mialo
+	for(int i=0; i<12; i++){
 			temp = klawiter();
 			uid[i] = temp;
 		}
@@ -187,7 +213,8 @@ void getPin(char * pin){
 	char temp[4];
 	//tutaj musi byc pobranie poprawnego pinu od wifi i zapisanie do temp
 	while(ifPin != 1){
-	getpin(pin); //wczytanie pinu od użytkownika
+	getpin(pin);
+	HAL_Delay(50);//wczytanie pinu od użytkownika
 	if(strcmp(pin,temp)) ifPin = 1; //jak jest dobry to super pętla się kończy, tylko nwm czy iteracyjnie nie bedzie trzeba porównać
 	else {
 		//i tu wyslanie informacji o błędzie na serwer żeby wyświetliło się użytkownikowi, że musi jeszcze raz wpisać go
@@ -263,6 +290,27 @@ else {
 
 char readId[83] = "GetHttpRequest:http://ptm23.azurewebsites.net/api/Device/setDisplay/test/cardread/0";
 
+void getKwota2(char * kwota){
+int pom = 0;
+
+		//kwota niestandardowa
+			char temp;
+			int licznik = 0;
+			//int liczba = 0;
+
+			while(temp != '#' && licznik < 4){
+				temp = klawiter();
+				kwota[licznik] = temp;
+				licznik++;
+			}
+
+			ifKwota = 1;
+
+			if(kwota[licznik-2] != 0){
+				ifKwota = 0;
+
+		}
+	}
 
 
 
@@ -276,8 +324,7 @@ void UID (char * uid){
 	uint8_t pom[1];
 	int i = 0;
 
-
-
+	//do{
 	HAL_UART_Transmit(&huart3, sendUART, sizeSendUART, 50);
 	HAL_Delay(10);
 	HAL_UART_Transmit(&huart3, newline, size, 50);
@@ -291,6 +338,11 @@ void UID (char * uid){
 		}
 		HAL_Delay(10);
 	}while(i<12);
+	//HAL_UART_Receive(&huart3, pom, sizeReceiveUART, 100);
+	//HAL_UART_Receive(&huart3, pom, sizeReceiveUART, 100);
+	//if(uid[0] != 110)break;
+	HAL_Delay(2000);
+	//}while(1);
 
 }
 
@@ -306,7 +358,7 @@ void saldo(const char * id){
 void widok(int n){
 	uint8_t newline[1] = {10};
 	uint16_t size = 1;
-
+//uint8_t pom[1];
 	switch(n){
 	case(1):
 		HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Device/setDisplay/test/menu/0", 80, 5000);
@@ -335,18 +387,19 @@ void widok(int n){
 	break;
 	}
 
+	//HAL_UART_Receive(&huart3, pom, 1, 100);
+	//HAL_UART_Receive(&huart3, pom, 1, 100);
+	//HAL_UART_Receive(&huart3, pom, 1, 100);
+	//HAL_UART_Receive(&huart3, pom, 1, 100);
+
 }
 
 
-
-
-
-
-
-void getData(const char * id){
+void getData(const uint8_t * id){
 	char pin2[4];
 	char uid[8];
 	char kwota[4] = {'0', '0', '0', '0'};
+int koniec = 0;
 	char operacja;
 	uint8_t pin[4];
 	uint8_t getpin[60] = "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Accounts/";
@@ -359,18 +412,19 @@ void getData(const char * id){
 	int i = 0;
 
 
-
+	widok(4);
 	if(ifId == 1){
 		getPin(pin2);
+		HAL_Delay(15);
 		HAL_UART_Transmit(&huart3, getpin, size2, 5000);
-		HAL_Delay(10);
-		HAL_UART_Transmit(&huart3, id, 12, 5000);
-		HAL_Delay(10);
-		HAL_UART_Transmit(&huart3, pinlast, 4, 5000);
-		HAL_Delay(10);
-		HAL_UART_Transmit(&huart3, newline, size, 50);
-		HAL_Delay(10);
-		HAL_UART_Receive(&huart3, pom, 1, 100);
+				HAL_Delay(15);
+				HAL_UART_Transmit(&huart3, id, 12, 6000);
+				HAL_Delay(15);
+				HAL_UART_Transmit(&huart3, pinlast, 4, 5000);
+				HAL_Delay(15);
+				HAL_UART_Transmit(&huart3, newline, size, 50);
+				HAL_Delay(15);
+				HAL_UART_Receive(&huart3, pom, 1, 100);
 		do{
 			if(HAL_UART_Receive(&huart3, pom, 1, 100) == HAL_OK){
 					if(pom[0] == 10) break;
@@ -389,20 +443,22 @@ void getData(const char * id){
 		HAL_UART_Transmit(&huart3, newline, size, 50);
 }
 
-
+do{
 	if(ifPin == 1 && ifId == 1){
 		operacja = getOperacja();
-		if(operacja == '5') widok(2);
-	}
-	if(ifPin == 1 && ifId == 1 && ifOperacja == 1 && operacja == '2'){ //zakladajac ze przelew jest jako operacja 3
-		getuid(uid);
-		//wyslanie uid na serwer
-		// odebranie informacji czy istnieje taki użytkownik, jak nie to powtorzyc getuid() potem jakas tu petle wstawic
-		getKwota(kwota);
-		//wyslanie info na serwer
+		if(operacja == '5') {
+		HAL_UART_Transmit(&huart3, "ClearLastId", 11, 5000);
+		HAL_UART_Transmit(&huart3, newline, size, 50);
+		HAL_UART_Receive(&huart3, pom, 1, 100);
+		HAL_UART_Receive(&huart3, pom, 1, 100);
+		HAL_UART_Receive(&huart3, pom, 1, 100);
+		HAL_UART_Receive(&huart3, pom, 1, 100);
+		koniec=1;
+		}
 	}
 
-	else if(ifPin == 1 && ifId == 1 && ifOperacja == 1 && operacja == '1'){ //tu pojdzie reszta operacji
+
+	if(ifPin == 1 && ifId == 1 && ifOperacja == 1 && operacja == '1'){ //tu pojdzie reszta operacji
 			saldo(id);
 			klawiter();
 			widok(1);
@@ -410,23 +466,198 @@ void getData(const char * id){
 		}
 	else if(ifPin == 1 && ifId == 1 && ifOperacja == 1 && operacja == '3'){ //tu pojdzie reszta operacji
 		widok(3);
-		getKwota(kwota);
+		getKwota2(kwota);
 		HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Accounts/",60, 5000);
 		HAL_UART_Transmit(&huart3, id, 12, 5000);
 		HAL_UART_Transmit(&huart3, "/balance", 8, 5000);
 		i =0;
 		HAL_UART_Receive(&huart3, pom, 1, 100);
 		do{
-		//if(HAL_UART_Receive(&huart3, stankonta, 4, 200) == HAL_OK) break;
 		if(HAL_UART_Receive(&huart3, pom, 1, 100) == HAL_OK){
 							if(pom[0] == 10) break;
 							stankonta[i] = pom[0];
 							i++;
 					}}while(i<4);
+
+		int wplata = atoi(kwota);
+		int stan = atoi(stankonta);
+
+			stan = (stan+wplata);
+			itoa(stan, stankonta, 10);
+			//stankonta = inttouint8(stan);
+
+			//GetHttpRequest:http://ptmp23.azurewebsites.net/api/Accounts/0/balance/{NowaKwota}
+
+			HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Accounts/",60, 5000);
+			HAL_UART_Transmit(&huart3, id, 12, 5000);
+			HAL_UART_Transmit(&huart3, "/balance/", 9, 5000);
+			HAL_UART_Transmit(&huart3, stankonta, 4, 5000);
+			HAL_UART_Transmit(&huart3, newline, size, 50);
+			HAL_UART_Receive(&huart3, pom, 1, 50);
+			HAL_UART_Receive(&huart3, pom, 1, 50);
+			HAL_Delay(100);
+			HAL_UART_Transmit(&huart3,"GetHttpRequest:http://ptmp23.azurewebsites.net/api/Device/showPopup/test/success/Transakcja%20przebieg%C5%82a%20pomy%C5%9Blnie",126,5000);
+			HAL_UART_Transmit(&huart3, newline, size, 50);
+			HAL_Delay(100);
+			HAL_UART_Receive(&huart3, pom, 1, 50);
+			HAL_UART_Receive(&huart3, pom, 1, 50);
+			HAL_Delay(100);
+			widok(1);
+			HAL_Delay(100);
+
 		HAL_Delay(10);
 
 		//wyslanie kwoty na serwer
 	}
+
+	else if(ifPin == 1 && ifId == 1 && ifOperacja == 1 && operacja == '4'){ //tu pojdzie reszta operacji
+			widok(6);
+			getKwota(kwota);
+			HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Accounts/",60, 5000);
+			HAL_UART_Transmit(&huart3, id, 12, 5000);
+			HAL_UART_Transmit(&huart3, "/balance", 8, 5000);
+			i =0;
+			HAL_UART_Receive(&huart3, pom, 1, 100);
+			do{
+			if(HAL_UART_Receive(&huart3, pom, 1, 100) == HAL_OK){
+								if(pom[0] == 10) break;
+								stankonta[i] = pom[0];
+								i++;
+						}}while(i<4);
+
+			int wyplata = atoi(kwota);
+			int stan = atoi(stankonta);
+		if(wyplata <= stan){
+				stan = (stan-wyplata);
+				itoa(stan, stankonta, 10);
+				//stankonta = inttouint8(stan);
+
+				//GetHttpRequest:http://ptmp23.azurewebsites.net/api/Accounts/0/balance/{NowaKwota}
+
+				HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Accounts/",60, 5000);
+				HAL_UART_Transmit(&huart3, id, 12, 5000);
+				HAL_UART_Transmit(&huart3, "/balance/", 9, 5000);
+				HAL_UART_Transmit(&huart3, stankonta, 4, 5000);
+				HAL_UART_Transmit(&huart3, newline, size, 50);
+				HAL_UART_Receive(&huart3, pom, 1, 50);
+				HAL_UART_Receive(&huart3, pom, 1, 50);
+				HAL_Delay(100);
+				HAL_UART_Transmit(&huart3,"GetHttpRequest:http://ptmp23.azurewebsites.net/api/Device/showPopup/test/success/Transakcja%20przebieg%C5%82a%20pomy%C5%9Blnie",126,5000);
+				HAL_UART_Transmit(&huart3, newline, size, 50);
+				HAL_Delay(100);
+				HAL_UART_Receive(&huart3, pom, 1, 50);
+				HAL_UART_Receive(&huart3, pom, 1, 50);
+				HAL_Delay(100);
+				widok(1);
+				HAL_Delay(100);
+		}
+		else {
+			uint8_t braksrodkow[120] = "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Device/showPopup/test/error/Wpisana%20kwota%20jest%20zbyt%20du%C5%BCa";
+			HAL_UART_Transmit(&huart3, braksrodkow, 120, 5000);
+			HAL_UART_Transmit(&huart3, newline, size, 50);
+			HAL_UART_Receive(&huart3, pom, 1, 100);
+			HAL_UART_Receive(&huart3, pom, 1, 100);
+			HAL_Delay(100);
+			widok(6);
+			HAL_Delay(100);
+		}
+
+			//wyslanie kwoty na serwer
+		}
+
+
+	else if(ifPin == 1 && ifId == 1 && ifOperacja == 1 && operacja == '2'){
+		widok(5);
+		uint8_t idvol2[12];
+		char kwota2[4] = {'0','0','0','0'};
+		getuid(idvol2);
+		getKwota2(kwota2);
+		int ifok = 0;
+		HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Accounts/",60, 5000);
+					HAL_UART_Transmit(&huart3, id, 12, 5000);
+					HAL_UART_Transmit(&huart3, "/balance", 8, 5000);
+					i = 0;
+					HAL_UART_Receive(&huart3, pom, 1, 100);
+					do{
+					if(HAL_UART_Receive(&huart3, pom, 1, 100) == HAL_OK){
+										if(pom[0] == 10) break;
+										stankonta[i] = pom[0];
+										i++;
+								}}while(i<4);
+
+					int wyplata = atoi(kwota2);
+					int stan = atoi(stankonta);
+				if(wyplata <= stan){
+						stan = (stan-wyplata);
+						itoa(stan, stankonta, 10);
+						//stankonta = inttouint8(stan);
+
+						//GetHttpRequest:http://ptmp23.azurewebsites.net/api/Accounts/0/balance/{NowaKwota}
+						HAL_UART_Receive(&huart3, pom, 1, 50);
+						HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Accounts/",60, 5000);
+						HAL_UART_Transmit(&huart3, id, 12, 5000);
+						HAL_UART_Transmit(&huart3, "/balance/", 9, 5000);
+						HAL_UART_Transmit(&huart3, stankonta, 4, 5000);
+						HAL_UART_Transmit(&huart3, newline, size, 50);
+						ifok = 1;
+				}
+				else {
+					uint8_t braksrodkow[120] = "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Device/showPopup/test/error/Wpisana%20kwota%20jest%20zbyt%20du%C5%BCa";
+					HAL_UART_Transmit(&huart3, braksrodkow, 120, 5000);
+					HAL_UART_Transmit(&huart3, newline, size, 50);
+					HAL_UART_Receive(&huart3, pom, 1, 100);
+					HAL_UART_Receive(&huart3, pom, 1, 100);
+					HAL_Delay(100);
+					widok(5);
+					HAL_Delay(100);
+				}
+
+
+if(ifok ==1){
+	HAL_Delay(1000);
+				HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Accounts/",60, 5000);
+						HAL_UART_Transmit(&huart3, idvol2, 12, 5000);
+						HAL_UART_Transmit(&huart3, "/balance", 8, 5000);
+						i=0;
+						HAL_UART_Receive(&huart3, pom, 1, 100);
+						HAL_UART_Receive(&huart3, pom, 1, 100);
+						do{
+						if(HAL_UART_Receive(&huart3, pom, 1, 100) == HAL_OK){
+											if(pom[0] == 10) break;
+											stankonta[i] = pom[0];
+											i++;
+									}}while(i<4);
+
+						int wplata = atoi(kwota2);
+						int stan = atoi(stankonta);
+
+							stan = (stan+wplata);
+							itoa(stan, stankonta, 10);
+
+							HAL_UART_Transmit(&huart3, "GetHttpRequest:http://ptmp23.azurewebsites.net/api/Accounts/",60, 5000);
+							HAL_UART_Transmit(&huart3, idvol2, 12, 5000);
+							HAL_UART_Transmit(&huart3, "/balance/", 9, 5000);
+							HAL_UART_Transmit(&huart3, stankonta, 4, 5000);
+							HAL_UART_Transmit(&huart3, newline, size, 50);
+							HAL_UART_Receive(&huart3, pom, 1, 50);
+							HAL_UART_Receive(&huart3, pom, 1, 50);
+							HAL_Delay(150);
+							HAL_UART_Transmit(&huart3,"GetHttpRequest:http://ptmp23.azurewebsites.net/api/Device/showPopup/test/success/Transakcja%20przebieg%C5%82a%20pomy%C5%9Blnie",126,5000);
+							HAL_UART_Transmit(&huart3, newline, size, 50);
+							HAL_Delay(150);
+							HAL_UART_Receive(&huart3, pom, 1, 50);
+							HAL_UART_Receive(&huart3, pom, 1, 50);
+							HAL_Delay(100);
+							widok(1);
+							HAL_Delay(100);
+
+}
+
+}
+HAL_Delay(150);
+}while(koniec != 1);
+
+
 	//zerowanie flag
 }
 /* USER CODE END 0 */
@@ -469,23 +700,33 @@ int main(void)
   uint16_t sizeSendUART = 3;
   uint8_t receiveUART[1];
   uint16_t sizeReceiveUART = 1;
-
-  UID(id);
-  getData(id);
+  uint8_t pom[1];
+ // UID(id);
+  //getData(id);
 //klawiter();
-  HAL_Delay(500);
+  //HAL_Delay(500);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  //widok()
 
 
-	  	//HAL_UART_Transmit_IT(&huart3, sendUART, sizeSendUART);
-	  //UID(id);
-	  //	HAL_Delay(500);
-
+	  UID(id);
+	  getData(id);
+	  widok(2);
+	  HAL_UART_Receive(&huart3, pom, 1, 100);
+	  HAL_UART_Receive(&huart3, pom, 1, 100);  //czyszczenie bufora
+	  HAL_UART_Receive(&huart3, pom, 1, 100);
+	  HAL_UART_Receive(&huart3, pom, 1, 100);
+	  HAL_Delay(500);
+	  ifPin = 0;
+	  ifId = 0;
+	  ifOperacja = 0;
+	  ifKwota = 0;
+	  HAL_Delay(50);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
