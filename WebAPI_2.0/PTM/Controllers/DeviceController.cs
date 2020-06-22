@@ -35,7 +35,7 @@ namespace PTM.Controllers
         public ActionResult SendKey(string deviceId, string key)
         {
             _appStateService.OnKeyPress(deviceId, key);
-            return Ok("Ok");
+            return Ok();
         }
 
         /// <summary>

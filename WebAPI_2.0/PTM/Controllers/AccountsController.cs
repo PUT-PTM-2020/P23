@@ -57,14 +57,14 @@ namespace PTM.Controllers
         /// Ustawianie salda
         /// </summary>
         [HttpGet("{id}/balance/{value}")]
-        public ActionResult<AccountModel> Put(string id, double value)
+        public ActionResult Put(string id, double value)
         {
             AccountModel account = Database.Accounts.FirstOrDefault(x => x.Id == id);
             if (account == null)
                 return NotFound();
             account.Balance = value;
             Database.SaveChanges();
-            return account;
+            return Ok();
         }
 
         // GET: api/Accounts/5/pin
