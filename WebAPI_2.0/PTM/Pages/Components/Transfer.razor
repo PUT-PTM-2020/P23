@@ -33,25 +33,25 @@
 
     string getReceiverId()
     {
-        if (Input.Contains("#"))
+        if (Input.Length > 12)
         {
-            return Input.Split("#")[0];
+            return Input.Substring(0, 12);
         }
         return Input;
     }
 
     string getAmount()
     {
-        if (Input.Contains("#"))
+        if (Input.Length > 12)
         {
-            return Input.Split("#")[1];
+            return Input.Substring(12);
         }
         return "";
     }
 
     string getFocusClass(int elementIndex)
     {
-        if (!Input.Contains("#"))
+        if (getReceiverId().Length < 12)
         {
             if (elementIndex == 0)
                 return "form-control-focus";
